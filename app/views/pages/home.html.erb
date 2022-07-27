@@ -4,7 +4,12 @@
 
 <% if current_user %>
   <p> Hello <%= current_user.email%>!</p>
+  <p> You are a <%= current_user.role %>
+  <% if current_user.moderator? %>
+    There are <%= User.count %> users in the system.
+  <% end %>
   <p>succesfully surrounded</p>
+  <%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete%>
 <% else %>
   <p>Not signed in</p>
   <%= link_to "Sign up", new_user_registration_path %>
