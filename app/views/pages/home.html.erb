@@ -16,6 +16,7 @@
 
   <% if current_user.moderator? %>
     There are <%= User.count %> users in the system.
+    <%= link_to "New Post", new_post_path %>
   <% end %>
 
   <p>succesfully surrounded</p>
