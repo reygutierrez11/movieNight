@@ -8,7 +8,9 @@
   <div class="container">
     <% if current_user %>
       <div class="container w-screen flex justify-center border-solid border-4 border-indigo-600">
-        <p> Hello <%= current_user.email%>!</p>
+        <p class="text-base font-light leading-relaxed mt-0 mb-4 text-indigo-800">
+          Hello <%= current_user.email%>!
+        </p>
       </div>
 
       <h5 class="text-2xl font-normal leading-normal mt-0 mb-2 text-indigo-800">
@@ -26,8 +28,11 @@
       </ul>
 
       <% if current_user.moderator? %>
-        There are <%= User.count %> users in the system.
+        There are <%= User.count %> users in the system
+        <br>
+        <button class="text-sky-500 background-transparent font-bold uppercase px-3 py-1 text-xs outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
         <%= link_to "New Post", new_post_path %>
+        </button>
       <% end %>
 
       <p>succesfully surrounded</p>
@@ -39,9 +44,18 @@
       </div>
 
     <% else %>
-      <p>Not signed in</p>
-      <%= link_to "Sign up", new_user_registration_path %>
-      <%= link_to "Login", new_user_session_path %>
+
+      <h5 class="text-4xl font-normal leading-normal mt-0 mb-2 text-blue-800">
+        <p>Not signed in</p>
+      </h5>
+
+
+      <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+        <%= link_to "Sign up", new_user_registration_path %>
+      </button>
+      <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+        <%= link_to "Login", new_user_session_path %>
+      </button>
     <% end %>
 
   </div>
