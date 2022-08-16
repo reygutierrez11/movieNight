@@ -26,6 +26,14 @@
       px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"><%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete%></button>
     </div>
 
+    <% if current_user.moderator? %>
+      <h1> Role: Moderator </h1>
+      <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 
+      px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" type="button">
+        <%= link_to "New Post", new_post_path %>
+      </button>
+    <% end %>
+
   <% else %>
     <h5 class="text-4xl font-normal leading-normal mt-0 mb-2 text-blue-800">
       <p>Not signed in</p>
