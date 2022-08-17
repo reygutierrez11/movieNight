@@ -1,0 +1,10 @@
+<h1>Articles</h1>
+
+<ul>
+  <% @suggestions.each do |suggestion| %>
+    <li>
+      <%= link_to suggestion.movie, suggestion %>
+    </li>
+  <% end %>
+</ul>
+

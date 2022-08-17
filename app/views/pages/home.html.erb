@@ -6,7 +6,6 @@
         font-medium title-font mb-1">Reynaldo Gutierrez Presents</h2>
         <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 
                    text-gray-900">Movie Night</h1>
-        <h1> <%= @suggestions.find(1).movie %></h1>
         <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Welcome to movie night! Below are posts for each movie night iteration. Click on the date to go to the page for it, although those pages currently don't have many live features. Do check on them from time to time however as this site changes. Thank you for participating in movie night.</p>
       </div>
       <div class="flex flex-wrap">
@@ -22,9 +21,20 @@
           </a>
         </div>
       <% end %>
+
+      <br>
+
+
+
+      <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+        <%= link_to "Suggest a Movie", new_suggestion_path %>
+      </button>
+
+
       <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 
       px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"><%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete%></button>
-    </div>
+      </div>
+
 
     <% if current_user.moderator? %>
       <h1> Role: Moderator </h1>

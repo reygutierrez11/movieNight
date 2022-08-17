@@ -1,0 +1,18 @@
+<h1>New Suggestion</h1>
+
+<%= form_with model: @suggestion do |form| %>
+  <div>
+    <%= form.label :suggestion %><br>
+    <%= form.text_field :movie %>
+  </div>
+
+  <div>
+    <%= form.label :your_name %><br>
+    <%= form.text_field :author %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+<% end %>
