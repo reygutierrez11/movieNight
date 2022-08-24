@@ -9,6 +9,7 @@ class SuggestionsController < ApplicationController
   end
 
   def new
+    @suggestions = Suggestion.all
     @suggestion = Suggestion.new
   end
 
