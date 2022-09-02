@@ -1,0 +1,9 @@
+<div class="containter mt-5 text-center">
+  <h1> This is sample content</h1>
+  <p> ... </p>
+  <%= month_calendar(events: @screenings) do |date| %>
+    <div class="day">
+      <%= date.day %>
+    </div>
+  <% end %>
+</div>
