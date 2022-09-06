@@ -14,5 +14,70 @@
  *= require_self
  */
 
+.simple-calendar {
+}
 
-*= require simple_calendar
+.calendar-title{
+  font-weight: bold;
+}
+
+.calendar-heading{
+  padding: 70px 25px;
+  width: 100%;
+  background: #1abc9c;
+  text-align: center;
+  color: white;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 35px;
+
+}
+
+.card-title{
+
+  color: #13EAC3;
+
+}
+
+.day {
+
+  width: 17%;
+  margin: 0;
+  padding: 10px;
+  background-color:#6D6D6D;
+}
+
+.wday-0 {
+}
+.wday-1 {
+}
+.wday-2 {
+}
+.wday-3 {
+}
+.wday-4 {
+}
+.wday-5 {
+}
+.wday-6 {
+}
+
+.today {
+  padding: 5px;
+  background: #1abc9c;
+  color: white !important
+}
+.past {}
+.future {}
+
+.start-date {}
+
+.prev-month {}
+.next-month { }
+.current-month {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.has-events {}
