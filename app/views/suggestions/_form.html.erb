@@ -26,17 +26,17 @@
 
                 <div class="mt-8">
                   <%= form_with model: @suggestion do |form| %>
-                    <div>
+                    <div class="text-gray-700 dark:text-white">
                       <%= form.label :suggestion %><br>
                       <%= form.text_field :movie %>
                     </div>
 
-                    <div>
+                    <div class="text-gray-700 dark:text-white">
                       <%= form.label :your_name %><br>
                       <%= form.text_field :author %>
                     </div>
 
-                    <div>
+                    <div class="font-bold text-gray-700 dark:text-white">
                       <%= form.submit %>
                     </div>
                   <% end %>

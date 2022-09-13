@@ -6,7 +6,7 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-config.time_zone = 'Central Time (US & Canada)'
+# config.time_zone = 'Central Time (US & Canada)'
 
 module MovieNight
   class Application < Rails::Application
