@@ -28,12 +28,12 @@
                   <%= form_with model: @suggestion do |form| %>
                     <div class="text-gray-700 dark:text-white">
                       <%= form.label :suggestion %><br>
-                      <%= form.text_field :movie %>
+                      <%= form.text_field :movie, class: "dark:text-black" %>
                     </div>
 
                     <div class="text-gray-700 dark:text-white">
                       <%= form.label :your_name %><br>
-                      <%= form.text_field :author %>
+                      <%= form.text_field :author, class: "dark:text-black" %>
                     </div>
 
                     <div class="font-bold text-gray-700 dark:text-white">
