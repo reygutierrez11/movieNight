@@ -1,0 +1,13 @@
+<div>
+  <h1> There is some sort of content in here </h1>
+</div>
+
+<div>
+  <ul>
+    <% @reviews.each do |review|%>
+      <li>
+        <%= review.title %>
+      </li>
+    <% end %>
+  </ul>
+</div>
