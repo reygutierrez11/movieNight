@@ -1,13 +1,19 @@
-<div>
-  <h1> There is some sort of content in here </h1>
-</div>
+<div class ="w-3/5">
+  <div class="w-3/5">
+    <h1 class="text-lg flex justify-center"> MOVIE NIGHT</h1>
+    <h1 class="text-lg flex justify-center"> Reviews</h1>
+  </div>
 
+  <div>
+    <ul class="grid grid-cols-2">
+      <% @reviews.each do |review|%>
+        <li>
+          <%= link_to review.title, review %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div>
+    <%= link_to "Time to review", new_review_path %>
 <div>
-  <ul>
-    <% @reviews.each do |review|%>
-      <li>
-        <%= review.title %>
-      </li>
-    <% end %>
-  </ul>
-</div>
