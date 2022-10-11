@@ -3,12 +3,29 @@
     <%= render  "shared/nav_bar" %>
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-col text-center w-full mb-20">
-        <h2 class="text-xs text-indigo-500 tracking-widest 
+        <h2 class="text-xs text-sky-500 tracking-widest 
         font-medium title-font mb-1">Reynaldo Gutierrez Presents</h2>
         <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 
                    text-gray-900">Movie Night 🍿 </h1>
         <p class="bg lg:w-4/5 mx-auto leading-relaxed text-base">Welcome to movie night! Below are posts for each movie night iteration. Click on the date to go to the page for it, although those pages currently don't have many live features. Do check on them from time to time however as this site changes. Thank you for participating in movie night.</p>
       </div>
+      <div class="w-full">
+        <div class="grid grid-cols-7 grid-rows-2 content-start py-8">
+          <div class="bg-sky-500/25 text-center rounded-tl-lg">Sunday</div>
+          <div class="bg-sky-500/50 text-center">Monday</div>
+          <div class="bg-sky-500/75 text-center">Tuesday</div>
+          <div class="bg-sky-500/75 text-center">Wednesday</div>
+          <div class="bg-sky-500/100 text-center">Thursday</div>
+          <div class="bg-sky-500/25 text-center">Friday</div>
+          <div class="bg-sky-500/25 text-center rounded-tr-lg">Saturday</div>
+          <div class="bg-sky-500/25 rounded-bl-lg"></div>
+          <div class="bg-sky-500/50 text-center text-white">Form Out</div>
+          <div class="bg-sky-500/75 text-center text-white">Decision Day</div>
+          <div class="bg-sky-500/75"></div>
+          <div class="bg-sky-500/100 text-center text-white">Movie Night!</div>
+          <div class="bg-sky-500/25 text-center text-white">Suggestions</div>
+          <div class="bg-sky-500/25 rounded-br-lg"></div>
+        </div>
       <div class="flex flex-wrap">
       </div>
       <% @posts.reverse_each do |post| %>
