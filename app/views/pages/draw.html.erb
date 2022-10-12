@@ -1,0 +1,27 @@
+<div>
+  <script
+      src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.js">
+    </script>
+    <script>
+      function setup() {
+        createCanvas(300,300);
+        background(220);
+      }
+
+      function draw(){
+        frameRate(20);
+        let num = Math.floor(Math.random() * 40 -20  ); 
+        let numy = Math.floor(Math.random() * 40 -20  );
+       
+        //rect(mouseX, mouseY, num, numy);
+        //rect(30, 30, 40, 40);
+        if (mouseIsPressed === true){
+          fill(0);
+        }
+        else{
+          fill(255);
+        }
+        rect(mouseX, mouseY, num, numy);
+      }
+    </script>
+</div>

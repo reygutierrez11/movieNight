@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get "/nome", to: "pages#nome"
   get "/home", to: "pages#home"
   get "/third", to: "pages#third"
+  get "/draw", to: "pages#draw"
+  get "/sketch", to: "pages#sketch"
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
