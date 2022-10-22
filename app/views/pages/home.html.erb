@@ -13,34 +13,13 @@
       </div>
       <div id="sketch-holder" class="w-full flex justify-center"></div>
       <script
-          src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.js" async>
+          src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.js" >
+      </script>
+      <%= javascript_include_tag'sketch.js' %>
+      <script 
+        src="./sketch.js" >
       </script>
       <script async>
-
-        function setup() {
-          let canvasDiv = document.getElementById('sketch-holder');
-          let width = canvasDiv.offsetWidth;
-          console.log(width);
-          let canvas = createCanvas(width,25);
-          canvas.parent("sketch-holder");
-          background(220);
-        }
-
-        function draw(){
-          frameRate(40);
-          let num = Math.floor(Math.random() * 40 -20  ); 
-          let numy = Math.floor(Math.random() * 40 -20  );
-         
-          //rect(mouseX, mouseY, num, numy);
-          //rect(30, 30, 40, 40);
-          if (mouseIsPressed === true){
-            fill(0);
-          }
-          else{
-            fill(255);
-          }
-          rect(mouseX, mouseY, num, numy);
-        }
       </script>
       <div class="w-full">
         <div class="grid grid-cols-7 grid-rows-2 content-start py-8">
