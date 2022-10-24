@@ -1,14 +1,19 @@
-<h1><%= @suggestion.movie %></h1>
+<div class="grid grid-cols-1">
+  <div>
+    <%= render  "shared/nav_bar" %>
+  </div>
+  <h1><%= @suggestion.movie %></h1>
 
-<p><%= @suggestion.author%></p>
+  <p><%= @suggestion.author%></p>
 
 
-<% if current_user.moderator? %>
-  <ul>
-    <li> <%= link_to "Edit", edit_suggestion_path(@suggestion)  %></li>
-    <li> <%= link_to "Destroy", suggestion_path(@suggestion), data: {
-    turbo_method: :delete,
-    turbo_confirm: "Are you sure?" }
-    %> </li>
-  </ul>
-<% end %>
+  <% if current_user.moderator? %>
+    <ul>
+      <li> <%= link_to "Edit", edit_suggestion_path(@suggestion)  %></li>
+      <li> <%= link_to "Destroy", suggestion_path(@suggestion), data: {
+      turbo_method: :delete,
+      turbo_confirm: "Are you sure?" }
+      %> </li>
+    </ul>
+  <% end %>
+</div>
