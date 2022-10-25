@@ -12,8 +12,4 @@ class PagesController < ApplicationController
     @reviews = Review.all
   end
 
-  def draw
-
-  end
-
 end
