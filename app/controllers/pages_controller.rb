@@ -10,6 +10,7 @@ class PagesController < ApplicationController
   
   def fome
     @reviews = Review.all
+    @october = Review.where(created_at: Time.now.beginning_of_month..Time.now.end_of_month)
   end
 
 end

@@ -15,6 +15,16 @@
       </ul>
     </div>
 
+    <div>
+      <h1>OCTOBER</h1>
+        <ul>
+          <% @october.each do |review| %>
+            <li>
+              <%= link_to review.title, review %>
+            </li>
+          <% end %>
+        </ul>
+    </div>
 
     <div class="flex justify-center py-10 bg-teal-100">
       <h1>Latest Review |⏳|</h1>
