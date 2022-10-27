@@ -8,7 +8,7 @@
     <div>
       <ul class="bg-teal-500 grid grid-cols-3">
         <% @reviews.each do |review|%>
-          <li class="px-8 py-4 center underline underline-offset-4 decoration-double">
+          <li class="px-8 py-4 center underline underline-offset-4 decoration-double grid grid-cols-3">
             <%= link_to review.title, review %>
           </li>
         <% end %>
@@ -16,11 +16,12 @@
     </div>
 
     <div>
-      <h1>OCTOBER</h1>
+      <h1 class="underline">OCTOBER</h1>
         <ul>
           <% @october.each do |review| %>
-            <li>
-              <%= link_to review.title, review %>
+            <li class="grid grid-cols-3">
+              <p>Movie: <%= link_to review.title, review%> </p> 
+              <p>Author: <%= review.author %></p>
             </li>
           <% end %>
         </ul>
