@@ -19,8 +19,8 @@
     </div>
 
     <div>
-      <%= form.label :stars %><br>
-      <%= form.number_field :score %>
+      <%= form.label :score %><br>
+      <%= form.number_field :score, in: 1..5, step: 1%>
     </div>
 
     <div>
