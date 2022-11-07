@@ -17,7 +17,7 @@ class SuggestionsController < ApplicationController
     @suggestion = Suggestion.new(suggestion_params)
 
     if @suggestion.save
-      redirect_to @suggestion
+      redirect_to new_suggestion_path 
     else
       render :new, status: :unprocessable_entity
     end
