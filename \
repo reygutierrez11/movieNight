@@ -11,14 +11,10 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
-	doble: ["doble", "double"],
       },
-      colors: {
-       'slate': 'CE5FF',
-      },
-      backgroundImage: {
-	'cinema': "url('cinema.png')",
-      }
+     colors: {
+       'slate': '#c0c2c9',
+     },
     },
   },
   plugins: [

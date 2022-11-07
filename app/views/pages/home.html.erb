@@ -1,15 +1,13 @@
-<section class="px-5 border-double text-gray-600 body-font">
+<section class="bg-inherit px-5 border-double text-sky-100 body-font">
   <% if current_user %>
     <div class="sticky top-0">
       <%= render  "shared/nav_bar" %>
     </div>
     <div class="container px-5 py-24 mx-auto">
-      <div class="flex flex-col text-center w-full mb-20">
-        <h2 class="sticky top-0 text-xs text-sky-500 tracking-widest 
-        font-medium title-font mb-1">Reynaldo Gutierrez Presents</h2>
-        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 
-                   text-gray-900">Movie Night 🍿 </h1>
-        <p class="bg lg:w-4/5 mx-auto leading-relaxed text-base">Welcome to movie night! Below are posts for each movie night iteration. Also included are buttons for the suggestion page where you can suggest a movie for the week, and our calendar that shows past screenings as well as any upcoming ones. Directly below is a loose weekly schedule of how the site is operated.Thank you for participating in movie night.</p>
+      <div class="backdrop-invert backdrop-opacity-60 rounded-md flex flex-col text-center w-full mb-20 ">
+        <h1 class="text-white sm:text-4xl font-doble mb-4 pt-7
+                   ">Movie Night 🍿 </h1>
+        <p class="lg:w-4/5 mx-auto pb-7 leading-relaxed text-md font-semibold">Welcome to movie night! Below are posts for each movie night iteration. Also included are buttons for the suggestion page where you can suggest a movie for the week, and our calendar that shows past screenings as well as any upcoming ones. We also now have a reviews section, come check out our thoughts on our most recent cinematic experiences. Directly below is a loose weekly schedule of how the site is operated.Thank you for participating in movie night.</p>
       </div>
       <div id="sketch-holder" class="w-full flex justify-center"></div>
       <script
@@ -23,7 +21,7 @@
       </script>
       <div class="w-full">
         <div class="grid grid-cols-7 grid-rows-2 content-start py-8">
-          <div class="bg-sky-500/25 text-center rounded-tl-lg">Sunday</div>
+          <div class="bg-sky-500/25 text-center rounded-tl-lg font-doble">Sunday</div>
           <div class="bg-sky-500/50 text-center">Monday</div>
           <div class="bg-sky-500/75 text-center">Tuesday</div>
           <div class="bg-sky-500/75 text-center">Wednesday</div>
@@ -40,17 +38,19 @@
         </div>
       <div class="flex flex-wrap">
       </div>
-      <% @posts.reverse_each do |post| %>
-        <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-          <h2 class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2"><%= link_to post.title, post %></h2>
-          <p class="leading-relaxed text-base mb-4"><%= post.body %></p>
-          <a class="text-indigo-500 inline-flex items-center"> <%= link_to post.link, post.link %>
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-      <% end %>
+      <div>
+        <% @posts.reverse_each do |post| %>
+          <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
+            <h2 class="text-lg sm:text-xl text-sky-200 font-medium title-font mb-2"><%= link_to post.title, post %></h2>
+            <p class="leading-relaxed text-base mb-4"><%= post.body %></p>
+            <a class="text-indigo-500 inline-flex items-center"> <%= link_to post.link, post.link %>
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        <% end %>
+      </div>
 
       <br>
 

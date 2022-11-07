@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Doble";
+  src: url("MinalisDoubleDemo-Rp9P6.ttf")
+
+}
 /*
 
 @layer components {
