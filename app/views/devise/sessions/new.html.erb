@@ -1,39 +1,41 @@
-<div class="container w-screen border-solid border-2 border-indigo-600">
+<div class="container w-screen border-solid border-2 border-indigo-600 p-5">
+  <h5 class="text-4xl font-semibold leading-normal mt-0 mb-2 text-blue-800">
+    Log in
+  </h5>
+<pre class="text-sky-200 py-5">
+Guest credentials:
+Email: guest@gmail.com
+Password: welcome
+</pre>  
 
-  <div class="container w-screen border-solid border-2 border-indigo-600">
-    <h5 class="text-4xl font-normal leading-normal mt-0 mb-2 text-blue-800">
-      Log in
-    </h5>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div >
+      <%= f.label :email, class:"field text-sky-200" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.label :password, class:"field text-sky-200" %><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
       <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password" %>
-      </div>
-
-      <% if devise_mapping.rememberable? %>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
-        </div>
-      <% end %>
-
-      <br>
-
-      <div class="actions">
-        <button class="block bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-        <%= f.submit "Log in", data: {turbo: false}%>
-        </button>
+        <%= f.check_box :remember_me, class:"field text-sky-200" %>
+        <%= f.label :remember_me, class:"field text-sky-200" %>
       </div>
     <% end %>
 
-      <button class="block text-sky-500 background-transparent font-bold uppercase px-3 py-1 text-xs outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-        <%= render "devise/shared/links" %>
+    <br>
+
+    <div class="actions">
+      <button class="block bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+      <%= f.submit "Log in", data: {turbo: false}%>
       </button>
-  </div>
+    </div>
+  <% end %>
+
+    <button class="block text-sky-500 background-transparent font-bold uppercase px-3 py-1 text-xs outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+      <%= render "devise/shared/links" %>
+    </button>
 </div>
