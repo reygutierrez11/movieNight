@@ -18,6 +18,9 @@ module.exports = {
       },
       backgroundImage: {
 	'cinema': "url('cinema.png')",
+	'moviesug': "url('moviesug.jpeg')",
+	'moviesug2': "url('moviesug2.png')",
+	'moviesug3': "url('moviesug3.jpg')",
       }
     },
   },
