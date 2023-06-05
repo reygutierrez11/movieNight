@@ -11,6 +11,14 @@
     <%= link_to 'New movie', new_movie_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
+  <div class="">
+    <h1 class="font-doble">EVERY MOVIE EVER</h1>
+    <% @movies.reverse_each do |movie| %>
+      <div class="flex flex-col text-sky-500">
+        <%= movie.title %>
+      </div>
+    <%end%>
+  </div>
   <div id="movies" class="min-w-full">
     <%= render @movies %>
   </div>

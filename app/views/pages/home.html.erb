@@ -21,20 +21,21 @@
           </script>
       <div class="w-full">
         <div class="grid grid-cols-7 grid-rows-2 content-start py-8">
-          <div class="bg-sky-500/25 text-center rounded-tl-lg font-doble">Sunday</div>
-          <div class="bg-sky-500/50 text-center font-doble">Monday</div>
-          <div class="bg-sky-500/75 text-center font-doble">Tuesday</div>
-          <div class="bg-sky-500/75 text-center font-doble">Wednesday</div>
-          <div class="bg-sky-500/100 text-center font-doble">Thursday</div>
-          <div class="bg-sky-500/25 text-center font-doble">Friday</div>
-          <div class="bg-sky-500/25 text-center rounded-tr-lg font-doble">Saturday</div>
-          <div class="bg-sky-500/25 rounded-bl-lg"></div>
+          <div class="bg-sky-500/100 text-center rounded-tl-lg font-doble">Sunday</div>
+          <div class="bg-sky-500/25 text-center font-doble">Monday</div>
+          <div class="bg-sky-500/25 text-center font-doble">Tuesday</div>
+          <div class="bg-sky-500/25 text-center font-doble">Wednesday</div>
+          <div class="bg-sky-500/50 text-center font-doble">Thursday</div>
+          <div class="bg-sky-500/75 text-center font-doble">Friday</div>
+          <div class="bg-sky-500/75 text-center rounded-tr-lg font-doble">Saturday</div>
+          <!--Starting with Sunday again-->
+          <div class="bg-sky-500/100 text-center rounded-bl-lg">Movie Night!</div>
+          <div class="bg-sky-500/25 text-center text-white">Suggestions</div>
+          <div class="bg-sky-500/25 text-center text-white"></div>
+          <div class="bg-sky-500/25"></div>
           <div class="bg-sky-500/50 text-center text-white">Form Out</div>
           <div class="bg-sky-500/75 text-center text-white">Decision Day</div>
-          <div class="bg-sky-500/75"></div>
-          <div class="bg-sky-500/100 text-center text-white">Movie Night!</div>
-          <div class="bg-sky-500/25 text-center text-white">Suggestions</div>
-          <div class="bg-sky-500/25 rounded-br-lg"></div>
+          <div class="bg-sky-500/75 rounded-br-lg"></div>
         </div>
       <div class="flex flex-wrap">
       </div>
@@ -53,22 +54,6 @@
       </div>
 
       <br>
-
-      <div>
-        <%= link_to new_suggestion_path do %>
-          <button class="block bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-            Suggest a movie!
-          </button>
-        <% end %>
-      </div>
-
-      <div>
-        <%= link_to nome_path do %>
-          <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-            Movie Calendar
-          </button>
-        <% end %>
-      </div>
 
       <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 
       px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"><%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete%></button>
