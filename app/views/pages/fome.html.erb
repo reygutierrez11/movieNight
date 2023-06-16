@@ -53,11 +53,13 @@
       <h1>Latest Review |⏳|</h1>
     </div>
 
-    <% if current_user.poster? | current_user.moderator? %>
-      <div class="flex justify-center bg-teal-200">
-        <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 
-        px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"><%= link_to "Add a review", new_review_path %></button>
-      </div>
+    <% if user_signed_in? %>
+      <% if current_user.poster? | current_user.moderator? %>
+        <div class="flex justify-center bg-teal-200">
+          <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 
+                         px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"><%= link_to "Add a review", new_review_path %></button>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
