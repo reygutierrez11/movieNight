@@ -66,28 +66,29 @@
           <%= link_to "New Post", new_post_path %>
         </button>
       <% end %>
+
+    <% else %>
+      <br>
+      </br>
+
+      <h5 class="text-4xl font-normal leading-normal mt-0 mb-2 text-sky-300 p-5">
+        <p>Not signed in</p>
+      </h5>
+
+      <div>
+        <%= link_to new_user_registration_path do %>
+          <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+            Sign up
+          </button>
+        <% end %>
+      </div>
+
+      <div>
+        <%= link_to new_user_session_path do %>
+          <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+            Login 
+          </button>
+        <% end %>
+      </div>
     <%end%>
-
-    <br>
-    </br>
-
-    <h5 class="text-4xl font-normal leading-normal mt-0 mb-2 text-sky-300 p-5">
-      <p>Not signed in</p>
-    </h5>
-
-    <div>
-      <%= link_to new_user_registration_path do %>
-        <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-          Sign up
-        </button>
-      <% end %>
-    </div>
-
-    <div>
-      <%= link_to new_user_session_path do %>
-        <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-          Login 
-        </button>
-      <% end %>
-    </div>
 </section>
