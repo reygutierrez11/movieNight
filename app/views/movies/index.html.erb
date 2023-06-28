@@ -6,10 +6,14 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Movies</h1>
-    <%= link_to 'New movie', new_movie_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-  </div>
+  <% if user_signed_in? %>
+    <% if current_user.moderator? %>
+      <div class="flex justify-between items-center">
+        <h1 class="font-bold text-4xl">Movies</h1>
+        <%= link_to 'New movie', new_movie_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+      </div>
+    <% end %>
+  <% end %>
 
   <div class="">
     <h1 class="font-doble">EVERY MOVIE EVER</h1>
@@ -19,7 +23,8 @@
       </div>
     <%end%>
   </div>
-  <div id="movies" class="min-w-full">
+
+  <div id="movies" class="w-full h-2/3 flex max-h-screen overflow-y-auto flex-col flex-grow ">
     <%= render @movies %>
   </div>
 </div>
