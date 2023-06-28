@@ -80,3 +80,5 @@ gem "tailwindcss-rails", "~> 2.0"
 gem "simple_calendar", "~> 2.4"
 
 gem "foreman"
+
+gem "acts_as_votable"
