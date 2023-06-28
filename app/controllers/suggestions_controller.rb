@@ -31,6 +31,17 @@ class SuggestionsController < ApplicationController
     redirect_to root_path, status: :see_other
   end
 
+  def like
+    @suggestion = Suggestion.find(params[:id])
+    @suggestion.liked_by current_user
+    redirect_back_or_to index
+  end
+
+  def dislike
+    @suggestion = Suggestion.find(params[:id])
+    @suggestion.disliked_by current_user
+  end
+
   private
   def suggestion_params
     params.require(:suggestion).permit(:movie, :author)
