@@ -6,11 +6,14 @@
 
     <%= render @movie %>
 
-    if current_user.moderator?
-    <%= link_to 'Edit this movie', edit_movie_path(@movie), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this movie', movie_path(@movie), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-    </div>
+    <% if user_signed_in?%>
+      <% if current_user.moderator?%>
+        <%= link_to 'Edit this movie', edit_movie_path(@movie), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+        <div class="inline-block ml-2">
+          <%= button_to 'Destroy this movie', movie_path(@movie), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+        </div>
+      <% end %>
+    <% end %>
     <%= link_to 'Back to movies', movies_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 </div>
