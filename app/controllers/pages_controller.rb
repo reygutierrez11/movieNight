@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @posts = Post.all
+    @posts = user_signed_in? && current_user.moderator? ? Post.all.sorted : Post.published.sorted
   end
 
   def nome
