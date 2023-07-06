@@ -5,7 +5,7 @@
   <div class="container px-5 py-24 mx-auto">
     <div class="backdrop-invert backdrop-opacity-60 rounded-md flex flex-col text-center w-full mb-20 ">
       <h1 class="text-white sm:text-4xl font-doble mb-4 pt-7
-                    ">Movie Night 🍿 </h1>
+                    ">Movie Night 🍿</h1>
       <p class="lg:w-4/5 mx-auto pb-7 leading-relaxed text-md font-semibold">Welcome to movie night! Below are posts for each movie night iteration. Also included are buttons for the suggestion page where you can suggest a movie for the week, and our calendar that shows past screenings as well as any upcoming ones. We also now have a reviews section, come check out our thoughts on our most recent cinematic experiences. Directly below is a loose weekly schedule of how the site is operated.Thank you for participating in movie night.</p>
     </div>
     <div id="sketch-holder" class="w-full flex justify-center"></div>
@@ -42,7 +42,7 @@
         <% @posts.last(@posts.length).each do |post| %>
           <% if post.draft?%>
             <h1>This one is a draft </h1>
-          <% elsif post.schedule? %>
+          <% elsif post.scheduled? %>
             <h1 class="text-lg text-sky-200">This one is a scheduled post for the <%= post.published_at %> </h1>
           <% end %>
           <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
