@@ -26,9 +26,10 @@ class SuggestionsController < ApplicationController
 
   def destroy
     @Suggestion = Suggestion.find(params[:id])
-    @Suggestion.destroy
-
-    redirect_to root_path, status: :see_other
+    if current_user.email == @Suggestion.user
+      @Suggestion.destroy
+    end
+    redirect_to new_suggestion_path, status: :see_other
   end
 
   def like
@@ -44,7 +45,7 @@ class SuggestionsController < ApplicationController
 
   private
   def suggestion_params
-    params.require(:suggestion).permit(:movie, :author)
+    params.require(:suggestion).permit(:movie, :author, :user)
   end
 
 end
