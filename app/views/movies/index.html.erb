@@ -1,35 +1,30 @@
-<div class="w-full text-sky-200">
+<div class="w-full text-sky-500">
   <div class="sticky top-0">
     <%= render  "shared/nav_bar" %>
+  </div>
+
+  <div class="grid grid-cols-3 pb-2">
+    <h1></h1>
+    <h1 class="flex justify-center bg-contain bg-sky-200 font-doble text-4xl underline underline-offset-4 pb-5 px-8 border-solid border-2 rounded-md">EVERY MOVIE EVER</h1>
+    <h1></h1>
+  </div>
+
+  <div class="pb-5">
+    <% @movies.reverse_each do |movie|%>
+      <div class="w-full flex border-solid border-4 border-gray-300 rounded-full bg-white py-2 my-1">
+        <h1 class ="flex w-4/6 justify-center"><%= movie.title %></h1>
+        <button class ="flex w-1/6 mr-4 border-solid border-2 border-pink-300 rounded-full justify-center bg-pink-300"><%= ("★" *  movie.rating) + ("☆" * (5 - movie.rating))%></button>
+        <button class ="flex w-1/6 mr-4 border-solid border-2 border-pink-300 rounded-full justify-center bg-pink-300">k</button>
+      </div>
+    <% end %>
   </div>
 
   <% if user_signed_in? %>
     <% if current_user.moderator? %>
       <div class="flex justify-between items-center">
-        <h1 class="font-bold text-4xl">Movies</h1>
         <%= link_to 'New movie', new_movie_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
       </div>
     <% end %>
   <% end %>
 
-  <div class="">
-    <h1 class="font-doble">EVERY MOVIE EVER</h1>
-    <% @movies.reverse_each do |movie| %>
-      <div class="flex flex-col text-sky-500">
-        <%= movie.title %>
-      </div>
-    <%end%>
-  </div>
-
-  <div></div>
-
-  <div id="movies" class="w-full h-2/3 flex max-h-screen overflow-y-auto flex-col flex-grow ">
-    <%= @movies.each do |movie| %>
-      <div class="py-5">
-        <p>Title: <%= movie.title %></p>
-        <p>Rating: <%= movie.rating%></p>
-        <p>Summary: <%= movie.summary%></p>
-      </div>
-    <% end %>
-  </div>
 </div>
