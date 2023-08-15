@@ -24,6 +24,11 @@
     </div>
 
     <div>
+      <%= form.label :movie, "Movie"%><br>
+      <%= form.select :movie_id, Movie.all.pluck(:title, :id),{promp:'select'},{class: "form-control, dark:text-black"}%>
+    </div>
+
+    <div>
       <%= form.submit %>
     </div>
   <% end %>
