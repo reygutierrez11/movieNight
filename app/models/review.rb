@@ -4,5 +4,4 @@ class Review < ApplicationRecord
   validates :body, presence: true
   validates :author, presence: true
   validates :score, presence: true
-  validates :movie_id, presence:true
 end

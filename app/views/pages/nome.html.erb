@@ -16,11 +16,11 @@
         </div>
         <div class="card-footer">
           <p class="card-text">
-            From: <%= screening.start_time.strftime('%a %k %p') %>
+            From: <%= screening.start_time.strftime('%a %I %p') %>
           </p>
           <p> -- </p>
           <p class = "card-text">
-            <%= screening.end_time.strftime('%a %k %p') %>
+            <%= screening.end_time.strftime('%a %I %p') %>
           </p>
         </div>
       <% end %>

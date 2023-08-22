@@ -14,10 +14,9 @@
       <div class="w-full flex border-solid border-4 border-gray-300 rounded-full bg-white py-2 my-1">
         <h1 class ="flex w-4/6 justify-center"><%= movie.title %></h1>
         <button class ="flex w-1/6 mr-4 border-solid border-2 border-pink-300 rounded-full justify-center bg-pink-300">
-          <%# <%= ("★" *  movie.rating) + ("☆" * (5 - movie.rating))%> 
-          <%= ("★" *(movie.reviews.pluck(:score).sum /
-          (movie.reviews.pluck(:score).length.to_f > 0 ?  movie.reviews.pluck(:score).length.to_f : 1.to_f)).ceil) + ("☆" * (5-(movie.reviews.pluck(:score).sum /
-          (movie.reviews.pluck(:score).length.to_f > 0 ?  movie.reviews.pluck(:score).length.to_f : 1.to_f)))) %>
+            <%= ("★" *(movie.reviews.pluck(:score).sum /
+            (movie.reviews.pluck(:score).length.to_f > 0 ?  movie.reviews.pluck(:score).length.to_f : 1.to_f)).ceil) + ("☆" * (5-(movie.reviews.pluck(:score).sum /
+            (movie.reviews.pluck(:score).length.to_f > 0 ?  movie.reviews.pluck(:score).length.to_f : 1.to_f)))) %>
         </button>
         <button class ="flex w-1/6 mr-4 border-solid border-2 border-pink-300 rounded-full justify-center bg-pink-300">
           <%= link_to 'View Review',  movie.reviews[-1]%>
