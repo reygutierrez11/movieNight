@@ -7,8 +7,9 @@
           <div class="">
             <p class="max-w-xl mt-3 text-gray-300 ">
               <% @suggestions.each do |suggestion|%>
-                <li class="text-white py-2 px-4 w-full border-b border-gray-200 dark:border-gray-600 h-10 bg-gradient-to-r from-teal-500 to-teal-200 rounded-md grid grid-cols-5 truncate">
-                  <%= suggestion.movie %>
+                <li class="text-white py-2 px-4 w-full border-b border-gray-200
+                             dark:border-gray-600 h-10 bg-gradient-to-r from-teal-500 to-teal-200 rounded-md grid grid-cols-4">
+                  <p class ="overflow-hidden truncate"><%= suggestion.movie %></p>
                   <%= button_to "Vote", like_suggestion_path(suggestion.id), {class: "px-5 text-white bg-teal-500 border-0 focus:outline-none hover:bg-teal-600 rounded text-lg"} %>
                   <%= suggestion.votes_for.size%>
                   <% if user_signed_in? %>
