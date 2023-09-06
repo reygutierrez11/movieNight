@@ -15,6 +15,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :suggestions do
+    collection do
+      post 'clear'
+    end
+  end
+
 
   resources :posts, :screenings, :reviews
 end
