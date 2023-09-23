@@ -1,97 +1,73 @@
-<section class="bg-inherit px-5 border-double text-sky-100 body-font">
+<div class="w-full"> 
+  <%# bg-inherit px-5 border-double text-sky-100 body-font"> %>
   <div class="sticky top-0">
     <%= render  "shared/nav_bar" %>
   </div>
+
   <div class="container px-5 py-24 mx-auto">
     <div class="backdrop-invert backdrop-opacity-60 rounded-md flex flex-col text-center w-full mb-20 ">
       <h1 class="text-white sm:text-4xl font-doble mb-4 pt-7
-                    ">Movie Night 🍿</h1>
-      <p class="lg:w-4/5 mx-auto pb-7 leading-relaxed text-md font-semibold">Welcome to movie night! Below are posts for each movie night iteration. Also included are buttons for the suggestion page where you can suggest a movie for the week, and our calendar that shows past screenings as well as any upcoming ones. We also now have a reviews section, come check out our thoughts on our most recent cinematic experiences. Directly below is a loose weekly schedule of how the site is operated.Thank you for participating in movie night.</p>
+                      ">Movie Night 🍿</h1>
+      <p class="lg:w-4/5 mx-auto pb-7 leading-relaxed text-md font-semibold">Welcome to movie night! Below is the calendar for this month's scheduled and previously held movie nights. On the nav bar you will see links to the suggestions page where you may suggest a movie and with an account or using the guest account, you may vote for this week's pick. We also now have a reviews section, come check out our thoughts on our most recent cinematic experiences. The movies page will list out movies we have watched, their average ratings based on reviews and link to the latest review posted for the movie.Thank you for participating in movie night.</p>
     </div>
-    <div id="sketch-holder" class="w-full flex justify-center"></div>
-    <script
-        src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.js" >
-    </script>
-    <%= javascript_include_tag'sketch.js' %>
-    <script 
-        src="./sketch.js" >
-    </script>
-    <script async>
-    </script>
-    <div class="w-full">
-      <div class="grid grid-cols-7 grid-rows-2 content-start py-8">
-        <div class="bg-sky-500/100 text-center rounded-tl-lg font-doble">Sunday</div>
-        <div class="bg-sky-500/25 text-center font-doble">Monday</div>
-        <div class="bg-sky-500/25 text-center font-doble">Tuesday</div>
-        <div class="bg-sky-500/25 text-center font-doble">Wednesday</div>
-        <div class="bg-sky-500/50 text-center font-doble">Thursday</div>
-        <div class="bg-sky-500/75 text-center font-doble">Friday</div>
-        <div class="bg-sky-500/75 text-center rounded-tr-lg font-doble">Saturday</div>
-        <!--Starting with Sunday again-->
-        <div class="bg-sky-500/100 text-center rounded-bl-lg">Movie Night!</div>
-        <div class="bg-sky-500/25 text-center text-white">Suggestions</div>
-        <div class="bg-sky-500/25 text-center text-white"></div>
-        <div class="bg-sky-500/25"></div>
-        <div class="bg-sky-500/50 text-center text-white">Form Out</div>
-        <div class="bg-sky-500/75 text-center text-white">Decision Day</div>
-        <div class="bg-sky-500/75 rounded-br-lg"></div>
-      </div>
-      <div class="flex flex-wrap">
-      </div>
+    <br>
+  </div>
 
-      <div>
-        <% @posts.last(@posts.length).each do |post| %>
-          <% if post.draft?%>
-            <h1>This one is a draft </h1>
-          <% elsif post.scheduled? %>
-            <h1 class="text-lg text-sky-200">This one is a scheduled post for the <%= post.published_at %> </h1>
-          <% end %>
-          <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-            <h2 class="text-lg sm:text-xl text-sky-200 font-medium title-font mb-2"><%= link_to post.title, post %></h2>
-            <p class="leading-relaxed text-base mb-4"><%= post.body %></p>
-            <a class="text-indigo-500 inline-flex items-center"> <%= link_to post.link, post.link %>
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-            </a>
-          </div>
-        <% end %>
+  <div>
+    <%= month_calendar(events: @screenings) do |date, screenings|%>
+      <div class="day">
+        <%= date.day %>
       </div>
-      <br>
-    </div>
+      <% screenings.each do |screening|%>
+        <div class="card-header">
+          <div class="card-title">
+            <%= link_to screening.title, screening %>
+          </div>
+        </div>
+        <div class="card-footer">
+          <p class="card-text">
+            From: <%= screening.start_time.strftime('%a %I %p') %>
+          </p>
+          <p>---</p>
+          <p class="card-text">
+            <%= screening.start_time.strftime('%a %I %p') %>
+          </p>
+        </div>
+      <% end %>
+    <% end %>
 
     <% if user_signed_in? %>
       <% if current_user.moderator? %>
         <h1> Role: Moderator </h1>
         <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 
-                        px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" type="button">
-          <%= link_to "New Post", new_post_path %>
+                         px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" type="button">
+          <%= link_to "New Screening", new_screening_path %>
         </button>
       <% end %>
-      <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 
-                      px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"><%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete%></button>
-    <% else %>
-      <br>
-      </br>
+      <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"><%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete%></button>
+  </div>
+    <% end %>
 
-      <h5 class="text-4xl font-normal leading-normal mt-0 mb-2 text-sky-300 p-5">
-        <p>Not signed in</p>
-      </h5>
+  <% if !user_signed_in? %>
+    <h5 class="text-4xl font-normal leading-normal mt-0 mb-2 text-sky-300 p-5">
+      <p>Not signed in</p>
+    </h5>
 
-      <div>
-        <%= link_to new_user_registration_path do %>
-          <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-            Sign up
-          </button>
-        <% end %>
-      </div>
+    <div>
+      <%= link_to new_user_registration_path do %>
+        <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+          Sign up
+        </button>
+      <% end %>
+    </div>
 
-      <div>
-        <%= link_to new_user_session_path do %>
-          <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-            Login 
-          </button>
-        <% end %>
-      </div>
-    <%end%>
-</section>
+    <div>
+      <%= link_to new_user_session_path do %>
+        <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+          Login 
+        </button>
+      <%end%>
+    <% end %>
+    </div>
+</div>
+

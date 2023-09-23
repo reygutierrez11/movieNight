@@ -2,9 +2,8 @@
   <div class="sticky top-0">
     <%= render  "shared/nav_bar" %>
   </div>
-
-  <div class="bg-teal-200 text-center">
-    <div class="justify-center w-full py-10">
+  <div class="bg-teal-200 text-center rounded-md">
+    <div class="justify-center py-10">
       <h1 class="text-lg text-center"> MOVIE NIGHT</h1>
       <h1 class="text-lg text-center"> Reviews</h1>
     </div>
@@ -20,12 +19,11 @@
         <% end %>
       </ul>
     </div>
-
     <% if user_signed_in? %>
       <% if current_user.poster? | current_user.moderator? | current_user.user? %>
         <div class="flex justify-center bg-teal-200">
           <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 
-                         px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"><%= link_to "Add a review", new_review_path %></button>
+                             px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"><%= link_to "Add a review", new_review_path %></button>
         </div>
       <% end %>
     <% end %>

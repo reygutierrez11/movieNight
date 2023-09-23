@@ -24,18 +24,16 @@
 .calendar-heading{
   padding: 70px 25px;
   width: 100%;
-  background: #1abc9c;
+  background: #A21CAF;
   text-align: center;
-  color: white;
+  color: #FDBA74;
   font-family: "Lucida Console", "Courier New", monospace;
   font-size: 35px;
 
 }
 
 .card-title{
-
-  color: #13EAC3;
-
+  color: #F472B6;
 }
 
 .card-text{
@@ -47,7 +45,7 @@
   width: 17%;
   margin: 0;
   padding: 10px;
-  background-color:#6D6D6D;
+  background-color: #A21CAF;
 }
 
 .wday-0 {
@@ -67,7 +65,7 @@
 
 .today {
   padding: 5px;
-  background: #1abc9c;
+  background: #F472B6;
   color: white !important
 }
 .past {}
@@ -76,9 +74,9 @@
 .start-date {}
 
 .prev-month {}
-.next-month { }
+.next-month {}
 .current-month {
-  color: white;
+  color: #FDBA74;
   font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 3px;

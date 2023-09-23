@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   def home
     @posts = user_signed_in? && current_user.moderator? ? Post.all.sorted : Post.published.sorted
+    @screenings = Screening.where(
+      start_time: Time.now.beginning_of_month.beginning_of_week..Time.now.end_of_month.end_of_week)
   end
 
   def nome
