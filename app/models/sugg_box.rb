@@ -1,0 +1,2 @@
+class SuggBox < ApplicationRecord
+end

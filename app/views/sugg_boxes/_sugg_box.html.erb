@@ -1,0 +1,7 @@
+<div id="<%= dom_id sugg_box %>">
+  <% if action_name != "show" %>
+    <%= link_to "Show this sugg box", sugg_box, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this sugg box', edit_sugg_box_path(sugg_box), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
