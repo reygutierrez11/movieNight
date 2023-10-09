@@ -12,5 +12,10 @@ class Suggestion < ApplicationRecord
         s.destroy
       end
     end
+
+    # def self.date_within_frame(time_frame)
+    #   suggestions = Suggestion.all
+
+    # end
   end
 end

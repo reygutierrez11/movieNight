@@ -48,6 +48,10 @@ class SuggestionsController < ApplicationController
     redirect_back_or_to index
   end
 
+  # def vali_date
+
+  # end
+
   private
   def suggestion_params
     params.require(:suggestion).permit(:movie, :author, :user)

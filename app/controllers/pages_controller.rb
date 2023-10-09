@@ -16,4 +16,8 @@ class PagesController < ApplicationController
     @november = Review.where(created_at: Time.now.beginning_of_month..Time.now.end_of_month)
   end
 
+  def vaulted
+    @suggestions = Suggestion.all
+  end
+
 end

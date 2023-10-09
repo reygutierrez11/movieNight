@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/draw", to: "pages#draw"
   get "/sketch", to: "pages#sketch"
   get "/complete", to: "pages#complete"
+  get "/vaulted", to: "pages#vaulted"
   devise_for :users
  
   resources :suggestions do
