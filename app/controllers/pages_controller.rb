@@ -18,6 +18,7 @@ class PagesController < ApplicationController
 
   def vaulted
     @suggestions = Suggestion.all
+    @sugg_boxes = SuggBox.all
   end
 
 end

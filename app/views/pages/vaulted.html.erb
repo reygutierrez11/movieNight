@@ -1,8 +1,35 @@
+<div class="">
+  <p class="max-w-xl mt-3 text-gray-300">
+    <% @sugg_boxes.find_by_name("All Encompassing").suggestions.each do |s|%>
+      <li class="w-full h-10 px-4 py-2 text-white border-b border-gray-200 dark:border-gray-600 bg-gradient-to-r from-teal-500 to-teal-200 rounded-md grid grid-cols-4">
+        <p class="overflow-hidden truncate">
+          <%= s.movie%>
+          <%= button_to "Suggest" %>
+        </p>
+      </li>
+    <% end %>
+  </p>
+</div>
+
+
+
+
+
+
 <div class="text-blue-600">
+  <h1>Suggestions vault</h1>
+  <p><%= @sugg_boxes.collect{|b| b.name} %></p>
+  <p><%= @sugg_boxes.find_by_name("All Encompassing").attributes%></p>
+  <p>DIVISION</p>
+  <p>DIVISION</p>
+  <p>DIVISION</p>
+  <p>DIVISION</p>
+  <p>DIVISION</p>
+  <p>DIVISION</p>
   <h1>Heading of all the things</h1>
   <p>
     <% @suggestions.each do |suggestion|%>
       <p><%= suggestion.movie %></p>
     <% end %>
-    </p>
+  </p>
 </div>

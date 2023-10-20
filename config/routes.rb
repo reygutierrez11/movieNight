@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :movies
+  resources :movies 
   root 'pages#home'
   get "/nome", to: "pages#nome"
   get "/home", to: "pages#home"
@@ -23,5 +23,5 @@ Rails.application.routes.draw do
   end
 
 
-  resources :posts, :screenings, :reviews
+  resources :posts, :screenings, :reviews, :sugg_boxes
 end

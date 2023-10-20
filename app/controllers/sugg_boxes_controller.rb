@@ -65,6 +65,6 @@ class SuggBoxesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def sugg_box_params
-      params.fetch(:sugg_box, {})
+      params.require(:sugg_box).permit(:name)
     end
 end

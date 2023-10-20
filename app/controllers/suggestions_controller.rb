@@ -54,7 +54,7 @@ class SuggestionsController < ApplicationController
 
   private
   def suggestion_params
-    params.require(:suggestion).permit(:movie, :author, :user)
+    params.require(:suggestion).permit(:movie, :author, :user, :sugg_box_id)
   end
 
 end
