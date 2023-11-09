@@ -5,8 +5,7 @@ class Suggestion < ApplicationRecord
   belongs_to :sugg_box
 
   def self.move_old_weekly_suggestions
-    # seconds_in_a_week = 604_800 
-    seconds_in_a_week = 10
+    seconds_in_a_week = 604_800 
     t = Time.now
     suggestions = SuggBox.find_by_name("Weekly").suggestions.all
     suggestions.each do |s|

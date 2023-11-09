@@ -15,7 +15,7 @@
                     <% if user_signed_in? %>
                       <% if s.user == current_user.email %>
                         <%= button_to "Delete", suggestion_path(s), form: { data: { turbo_confirm: 'Are you sure?' } } , method: :delete %>
-                        <%= button_to "Move", change_box_suggestion_path(s.id)%>
+                        <%= button_to "Store", change_box_suggestion_path(s.id)%>
                       <% end %>
                     <% end %>
                   </p>
@@ -37,7 +37,7 @@
                         <%= button_to "Delete", suggestion_path(s), form: { data: { turbo_confirm: 'Are you sure?' } } , method: :delete %>
                       <% end %>
                     <% end %>
-                    <%= button_to "Move", change_box_suggestion_path(s.id)%>
+                    <%= button_to "Suggest", change_box_suggestion_path(s.id)%>
                   </p>
                 </li>
               <% end %>
