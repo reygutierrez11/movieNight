@@ -27,10 +27,10 @@ class SuggestionsController < ApplicationController
 
   def change_box
     @suggestion = Suggestion.find(params[:id])
-    if @suggestion.sugg_box_id == 5
-      destination_box_id = 6
-    elsif @suggestion.sugg_box_id == 6
-      destination_box_id = 5
+    if @suggestion.sugg_box.name == "All Encompassing" 
+      destination_box_id = SuggBox.find_by_name("Weekly").id
+    elsif @suggestion.sugg_box.name == "Weekly"
+      destination_box_id = SuggBox.find_by_name("All Encompassing").id
     end
     @suggestion.move_suggestions_to_new_box(destination_box_id)
     redirect_to new_suggestion_path, status: :see_other

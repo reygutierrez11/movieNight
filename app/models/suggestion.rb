@@ -11,7 +11,7 @@ class Suggestion < ApplicationRecord
     suggestions = SuggBox.find_by_name("Weekly").suggestions.all
     suggestions.each do |s|
       if t - s.updated_at > seconds_in_a_week
-        s.move_suggestions_to_new_box(5)
+        s.move_suggestions_to_new_box(SuggBox.find_by_name("All Encompassing").id)
       end
     end
   end
