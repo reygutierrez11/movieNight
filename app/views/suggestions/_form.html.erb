@@ -74,7 +74,7 @@
             </div>
 
             <div class="py-2 text-gray-700 dark:text-white">
-              <%= form.label :sugg_box, "Box"%><br>
+              <%= form.label :sugg_box, "List"%><br>
               <%= form.select :sugg_box_id, SuggBox.all.pluck(:name, :id),{promp:'select'},{class: "form-control, dark:text-black"}%>
             </div>
 
