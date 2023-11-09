@@ -13,15 +13,16 @@ Rails.application.routes.draw do
   resources :suggestions do
     member do
       post "like" => "suggestions#like"
+      post 'change_box' => "suggestions#change_box" 
     end
   end
 
   resources :suggestions do
     collection do
-      post 'clear'
+      post 'clear' 
     end
   end
 
 
-  resources :posts, :screenings, :reviews, :sugg_boxes
+  resources :posts,:suggestions, :screenings, :reviews, :sugg_boxes
 end

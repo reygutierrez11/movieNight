@@ -1,4 +1,5 @@
 class SuggestionsController < ApplicationController
+  helper_method :change_box
 
   def index
     @suggestions = Suggestion.all
@@ -9,6 +10,7 @@ class SuggestionsController < ApplicationController
   end
 
   def new
+    @sugg_boxes = SuggBox.all
     @suggestions = Suggestion.all
     @suggestion = Suggestion.new
   end
@@ -17,12 +19,22 @@ class SuggestionsController < ApplicationController
     @suggestion = Suggestion.new(suggestion_params)
 
     if @suggestion.save
-      redirect_to new_suggestion_path 
+      redirect_to new_suggestion_path, status: :see_other
     else
       render :new, status: :unprocessable_entity
     end
   end
 
+  def change_box
+    @suggestion = Suggestion.find(params[:id])
+    if @suggestion.sugg_box_id == 5
+      destination_box_id = 6
+    elsif @suggestion.sugg_box_id == 6
+      destination_box_id = 5
+    end
+    @suggestion.move_suggestions_to_new_box(destination_box_id)
+    redirect_to new_suggestion_path, status: :see_other
+  end
 
   def destroy
     @Suggestion = Suggestion.find(params[:id])
@@ -44,13 +56,9 @@ class SuggestionsController < ApplicationController
   end
 
   def clear
-    Suggestion.clear_suggestions
+    Suggestion.move_old_weekly_suggestions
     redirect_back_or_to index
   end
-
-  # def vali_date
-
-  # end
 
   private
   def suggestion_params

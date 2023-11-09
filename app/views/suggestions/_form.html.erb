@@ -5,25 +5,49 @@
         <div>
           <h2 class="text-4xl font-bold text-white">This Week's Suggestions</h2>
           <div class="">
-            <p class="max-w-xl mt-3 text-gray-300 ">
-              <% @suggestions.each do |suggestion|%>
-                <li class="w-full h-10 px-4 py-2 text-white border-b border-gray-200 dark:border-gray-600 bg-gradient-to-r from-teal-500 to-teal-200 rounded-md grid grid-cols-4">
-                  <p class ="overflow-hidden truncate"><%= suggestion.movie %></p>
-                  <%= button_to "Vote", like_suggestion_path(suggestion.id), {class: "px-5 text-white bg-teal-500 border-0 focus:outline-none hover:bg-teal-600 rounded text-lg"} %>
-                  <%= suggestion.votes_for.size%>
-                  <% if user_signed_in? %>
-                    <% if suggestion.user == current_user.email %>
-                      <%= button_to "Delete", suggestion_path(suggestion), form: { data: { turbo_confirm: 'Are you sure?' } } , method: :delete %>
+            <p class="max-w-xl mt-3 text-gray-300">
+              <% @sugg_boxes.find_by_name("Weekly").suggestions.each do |s|%>
+                <li class="w-full h-10 px-4 py-2 text-white border-b border-gray-200 dark:border-gray-600 bg-gradient-to-r from-teal-500 to-teal-200 rounded-md grid grid-cols-5">
+                  <p class="overflow-hidden truncate">
+                    <%= s.movie%>
+                    <%= button_to "Vote", like_suggestion_path(s.id), {class: "px-5 text-white bg-teal-500 border-0 focus:outline-none hover:bg-teal-600 rounded text-lg"} %>
+                    <%= s.votes_for.size%>
+                    <% if user_signed_in? %>
+                      <% if s.user == current_user.email %>
+                        <%= button_to "Delete", suggestion_path(s), form: { data: { turbo_confirm: 'Are you sure?' } } , method: :delete %>
+                        <%= button_to "Move", change_box_suggestion_path(s.id)%>
+                      <% end %>
                     <% end %>
-                  <% end %>
+                  </p>
                 </li>
               <% end %>
             </p>
           </div>
-          <%= button_to "Clear week old suggestions", clear_suggestions_path,{class:"px-5 text-white bg-teal-500 border-0 focus:outline-none hover:bg-teal-600 rounded text-lg" } %>
+          <h2 class="pt-10 text-4xl font-bold text-white">All Time Suggestions</h2>
+          <div class="">
+            <p class="max-w-xl mt-3 text-gray-300">
+              <% @sugg_boxes.find_by_name("All Encompassing").suggestions.each do |s|%>
+                <li class="w-full h-10 px-4 py-2 text-white border-b border-gray-200 dark:border-gray-600 bg-gradient-to-r from-teal-500 to-teal-200 rounded-md grid grid-cols-5">
+                  <p class="overflow-hidden truncate">
+                    <%= s.movie%>
+                    <%= button_to "Vote", like_suggestion_path(s.id), {class: "px-5 text-white bg-teal-500 border-0 focus:outline-none hover:bg-teal-600 rounded text-lg"} %>
+                    <%= s.votes_for.size%>
+                    <% if user_signed_in? %>
+                      <% if s.user == current_user.email %>
+                        <%= button_to "Delete", suggestion_path(s), form: { data: { turbo_confirm: 'Are you sure?' } } , method: :delete %>
+                      <% end %>
+                    <% end %>
+                    <%= button_to "Move", change_box_suggestion_path(s.id)%>
+                  </p>
+                </li>
+              <% end %>
+            </p>
+          </div>
+          <%= button_to "Move week old suggestions", clear_suggestions_path,{class:"px-5 text-white bg-teal-500 border-0 focus:outline-none hover:bg-teal-600 rounded text-lg" } %>
         </div>
       </div>
     </div>
+
 
     <div class="flex items-center w-full max-w-md px-6 mx-auto lg:w-2/6">
       <div class="flex-1">
@@ -52,8 +76,6 @@
             <div class="py-2 text-gray-700 dark:text-white">
               <%= form.label :sugg_box, "Box"%><br>
               <%= form.select :sugg_box_id, SuggBox.all.pluck(:name, :id),{promp:'select'},{class: "form-control, dark:text-black"}%>
-            </div>
-
             </div>
 
             <div class="font-bold text-gray-700 dark:text-white">
