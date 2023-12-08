@@ -4,7 +4,7 @@
       <div class="flex items-center h-full px-20 bg-gray-900 bg-opacity-40 ">
         <div>
           <h2 class="text-4xl font-bold text-white">This Week's Suggestions</h2>
-          <div class="overflow-y-scroll h-82">
+          <div class="h-64 overflow-y-scroll">
             <p class="max-w-xl mt-3 text-gray-300">
               <% @sugg_boxes.find_by_name("Weekly").suggestions.each do |s|%>
                 <li class="w-full h-10 px-4 py-2 text-white border-b border-gray-200 dark:border-gray-600 bg-gradient-to-r from-teal-500 to-teal-200 rounded-md grid grid-cols-5">
@@ -24,7 +24,7 @@
             </p>
           </div>
           <h2 class="pt-10 text-4xl font-bold text-white">All Time Suggestions</h2>
-          <div class="overflow-y-scroll h-82">
+          <div class="h-64 overflow-y-scroll">
             <p class="max-w-xl mt-3 text-gray-300">
               <% @sugg_boxes.find_by_name("All Encompassing").suggestions.each do |s|%>
                 <li class="w-full h-10 px-4 py-2 text-white border-b border-gray-200 dark:border-gray-600 bg-gradient-to-r from-teal-500 to-teal-200 rounded-md grid grid-cols-5">
