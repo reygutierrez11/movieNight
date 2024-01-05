@@ -17,7 +17,7 @@ class SuggestionsController < ApplicationController
 
   def create
     @suggestion = Suggestion.new(suggestion_params) do |s|
-      s.sugg_box_id = 6
+      s.sugg_box_id = 2
     end
     if @suggestion.save
       redirect_to new_suggestion_path, status: :see_other
