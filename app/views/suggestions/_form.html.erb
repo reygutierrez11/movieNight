@@ -8,10 +8,15 @@
         <h2 class="mb-4 text-4xl font-bold text-white">This Week's Suggestions</h2>
         <%= render "suggestions_filtered", suggestions: weekly_suggestions %>
 
-        <h2 class="pt-10 text-4xl mb-4 font-bold text-white">All Time Suggestions</h2>
+        <div class="flex justify-center">
+          <%= button_to "Store week old suggestions",
+                        clear_suggestions_path,
+                        { class:"px-5 my-4 text-white bg-teal-500 border-0 focus:outline-none hover:bg-teal-600 rounded text-lg" } %>
+        </div>
+
+        <h2 class="pt-10 mb-4 text-4xl font-bold text-white">All Time Suggestions</h2>
         <%= render "suggestions_filtered", suggestions: all_time_minus_weekly_suggestions %>
 
-        <%= button_to "Move week old suggestions", clear_suggestions_path,{class:"px-5 my-4 text-white bg-teal-500 border-0 focus:outline-none hover:bg-teal-600 rounded text-lg" } %>
       </div>
     </div>
   </div>

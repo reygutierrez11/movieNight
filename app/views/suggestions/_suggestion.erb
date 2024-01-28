@@ -5,8 +5,8 @@
     <p class="flex justify-center"><%= s.votes_for.size%></p>
     <% if user_signed_in? %>
       <% if s.user == current_user.email %>
+        <%= button_to "Move", change_box_suggestion_path(s.id), data: { turbo_frame: "_top" } %>
         <%= button_to "Delete", suggestion_path(s), form: { data: { turbo_confirm: 'Are you sure?' } } , method: :delete %>
-        <%= button_to "Store", change_box_suggestion_path(s.id), data: { turbo_frame: "_top" } %>
       <% end %>
     <% end %>
   </li>
