@@ -7,12 +7,15 @@ class SuggestionsController < ApplicationController
 
   def show
     @suggestion = Suggestion.find(params[:id])
+    @movie = @suggestion.movie
   end
 
   def new
     @sugg_boxes = SuggBox.all
     @suggestions = Suggestion.all
     @suggestion = Suggestion.new
+    @weekly_suggestions = @sugg_boxes.find_by_name("Weekly").suggestions
+    @all_time_minus_weekly_suggestions = @sugg_boxes.find_by_name("All Encompassing").suggestions
   end
 
   def create
