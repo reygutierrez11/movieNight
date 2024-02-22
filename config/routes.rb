@@ -23,6 +23,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :movies do
+    resources :reviews
+  end
+
 
   resources :posts,:suggestions, :screenings, :reviews, :sugg_boxes
 end

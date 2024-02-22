@@ -8,7 +8,6 @@ class ReviewsController < ApplicationController
   end
   
   def new
-    @review = Review.new
   end
 
   def create
@@ -23,6 +22,6 @@ class ReviewsController < ApplicationController
 
   private
     def review_params
-      params.require(:review).permit(:title, :author , :body, :score, :movie_id)
+      params.require(:review).permit(:title, :author, :body, :score, :movie_id)
     end
 end

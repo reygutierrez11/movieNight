@@ -12,10 +12,13 @@ class SuggestionsController < ApplicationController
 
   def new
     @sugg_boxes = SuggBox.all
-    @suggestions = Suggestion.all
     @suggestion = Suggestion.new
+    @suggestions = Suggestion.all
     @weekly_suggestions = @sugg_boxes.find_by_name("Weekly").suggestions
     @all_time_minus_weekly_suggestions = @sugg_boxes.find_by_name("All Encompassing").suggestions
+    @recent_movie = Movie.last
+    @review = Review.new
+    @movie = Movie.last
   end
 
   def create
