@@ -1,0 +1,24 @@
+<div class="flex flex-col justify-center h-screen md:flex-row">
+  <div class="mt-8">
+    <%= form_with model: @suggestion do |form| %>
+      <div class="py-2 text-gray-700 dark:text-white">
+        <%= form.label "Email (optional)"%><br>
+        <%= form.text_field :user, value:(current_user ? current_user.email : "") , class:"dark:text-black" %>
+      </div>
+
+      <div class="py-2 text-gray-700 dark:text-white">
+        <%= form.label :movie %><br>
+        <%= form.text_field :movie, class: "dark:text-black" %>
+      </div>
+
+      <div class="py-2 text-gray-700 dark:text-white">
+        <%= form.label :your_name %><br>
+        <%= form.text_field :author, class: "dark:text-black" %>
+      </div>
+
+      <div class="font-bold text-gray-700 dark:text-white"> <%= form.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
