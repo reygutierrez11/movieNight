@@ -1,6 +1,6 @@
 <%= turbo_frame_tag s do %> 
   <li class="w-full h-10 px-4 py-2 text-white border-b border-gray-200 dark:border-gray-600 bg-gradient-to-r from-teal-500 to-teal-200 rounded-md grid grid-cols-6">
-    <p class="overflow-hidden truncate col-span-2"><%= s.movie%></p>
+    <p class="overflow-hidden truncate col-span-2", title="<%= s.description %>"> <%= s.movie%> </p>
     <%= button_to "Vote", like_suggestion_path(s.id), { class: "px-1 lg:px-5 text-white bg-teal-500 border-0 focus:outline-none hover:bg-teal-600 rounded text-lg" } %>
     <p class="flex justify-center"><%= s.votes_for.size%></p>
     <% if user_signed_in? %>

@@ -90,3 +90,9 @@ gem "simple_calendar", "~> 2.4"
 gem "foreman"
 
 gem "acts_as_votable"
+
+# For webscraping functionality
+gem 'mechanize'
+
+# For logging
+gem 'logger'

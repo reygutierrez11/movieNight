@@ -25,6 +25,7 @@ class SuggestionsController < ApplicationController
     @suggestion = Suggestion.new(suggestion_params) do |s|
       id = SuggBox.find_by_name("Weekly").id
       s.sugg_box_id = id
+      s.add_quick_description
     end
     if @suggestion.save
       redirect_to new_suggestion_path, status: :see_other
