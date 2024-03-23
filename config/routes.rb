@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     member do
       post "like" => "suggestions#like"
       post 'change_box' => "suggestions#change_box" 
+      post 'show_description' => 'suggestions#description'
+      post 'back' => 'suggestions#back'
     end
   end
 

@@ -64,12 +64,24 @@ class SuggestionsController < ApplicationController
     @suggestion.disliked_by current_user
   end
 
+  def description 
+    set_suggestion
+  end
+
+  def back
+    set_suggestion
+  end
+
   def clear
     Suggestion.move_old_weekly_suggestions
     redirect_back_or_to index
   end
 
   private
+  def set_suggestion
+    @suggestion = Suggestion.find(params[:id])
+  end
+
   def suggestion_params
     params.require(:suggestion).permit(:movie, :author, :user, :sugg_box_id)
   end

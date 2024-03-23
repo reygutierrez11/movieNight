@@ -1,0 +1,8 @@
+<turbo-stream action="replace" target="<%= dom_id(@suggestion) %>">
+  <template>
+    <%= render @suggestion, s: @suggestion %>
+  </template>
+</turbo-stream>
+
+<%# replace with self %>
+<%# <%= turbo_stream.replace @suggestion, (render 'suggestion', s: @suggestion) %1> %>
