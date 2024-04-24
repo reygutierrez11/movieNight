@@ -56,7 +56,8 @@ class SuggestionsController < ApplicationController
   def like
     @suggestion = Suggestion.find(params[:id])
     @suggestion.liked_by current_user
-    redirect_back_or_to index
+    # redirect_back_or_to index
+    render partial: "suggestion", locals: { s: @suggestion }
   end
 
   def dislike
