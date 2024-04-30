@@ -1,7 +1,7 @@
 <%= turbo_frame_tag s do %> 
   <li class="w-full h-10 px-4 py-2 text-white border-b border-gray-200 dark:border-gray-600 bg-gradient-to-r from-teal-500 to-teal-200 rounded-md grid grid-cols-7">
     <p class="overflow-hidden truncate col-span-2", title="<%= s.description %>"> <%= s.movie%> </p>
-    <%= button_to "Vote", like_suggestion_path(s.id), { class: "px-1 lg:px-5 text-white bg-teal-500 border-0 hover:bg-teal-300 rounded text-lg focus:ring focus:outline-none focus:ring-offset-4 focus:ring-teal-200 focus:ring-opacity-50 active:bg-teal-600 hover:-translate-y-0.5 transition duration-200 bg-teal-500 shadow-lg ", method: :get } %>
+    <%= button_to "Vote", like_suggestion_path(s.id), { class: "px-1 lg:px-5 text-white bg-teal-500 border-0 hover:bg-teal-300 rounded text-lg focus:ring focus:outline-none focus:ring-offset-4 focus:ring-teal-200 focus:ring-opacity-50 active:bg-teal-600 hover:-translate-y-0.5 transition duration-200 bg-teal-500 shadow-lg ", method: :post } %>
     <p class="flex justify-center"><%= s.votes_for.size%></p>
     <%= button_to "Dsc", show_description_suggestion_path(s.id) %>
     <% if user_signed_in? %>

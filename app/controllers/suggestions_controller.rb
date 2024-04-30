@@ -57,7 +57,9 @@ class SuggestionsController < ApplicationController
     @suggestion = Suggestion.find(params[:id])
     @suggestion.liked_by current_user
     # redirect_back_or_to index
-    render partial: "suggestion", locals: { s: @suggestion }
+     
+    # content_type is crucial here as it wasn't being received before
+    render partial: "suggestion", content_type: "text/html", locals: { s: @suggestion }
   end
 
   def dislike

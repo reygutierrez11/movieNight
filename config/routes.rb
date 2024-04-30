@@ -12,8 +12,7 @@ Rails.application.routes.draw do
  
   resources :suggestions do
     member do
-      # post "like" => "suggestions#like"
-      get "like" => "suggestions#like"
+      post "like" => "suggestions#like"
       post 'change_box' => "suggestions#change_box" 
       post 'show_description' => 'suggestions#description'
       post 'back' => 'suggestions#back'
