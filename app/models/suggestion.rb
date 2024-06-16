@@ -39,11 +39,11 @@ class Suggestion < ApplicationRecord
     options = agent.page.links
 
     first_option = options.find do |link|
-      link.resolved_uri.to_s.include?('tt_1')
+      link.resolved_uri.to_s.include?('fn_al_tt_1')
     end.resolved_uri
 
     # get description off page
-    description = agent.get(first_option).search(".//span[@class='sc-466bb6c-0 hlbAws']").text
+    description = agent.get(first_option).search(".//span[@class='sc-eb5317c9-2 bruFve']").text
     self.description = description
   end
 

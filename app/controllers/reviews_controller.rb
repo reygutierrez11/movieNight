@@ -8,13 +8,16 @@ class ReviewsController < ApplicationController
   end
   
   def new
+    @review = Review.new
   end
 
   def create
     @review = Review.new(review_params)
+    @movie = Movie.last
 
     if @review.save
-      redirect_to new_suggestion_path
+      @review = Review.new()
+      render "reviews/_new", content_type: "text/html", locals: { review: @new_review }
     else
       render :new, status: :unprocessable_entity
     end
