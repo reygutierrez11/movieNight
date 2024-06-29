@@ -43,8 +43,7 @@ class Suggestion < ApplicationRecord
     end.resolved_uri
 
     # get description off page
-    description = agent.get(first_option).search(".//span[@class='sc-eb5317c9-2 bruFve']").text
+    description = agent.get(first_option).search(".//span[@class='sc-2d37a7c7-0 caYjFF']").text
     self.description = description
   end
-
 end
