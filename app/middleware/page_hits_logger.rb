@@ -5,7 +5,7 @@ class PageHitsLogger
     @app = app
 
     # create logger
-    @logger = ActiveSupport::Logger.new(Rails.root.join('log', 'hits.log'), 5, 10.megabytes)
+    # @logger = ActiveSupport::Logger.new(Rails.root.join('log', 'hits.log'), 5, 10.megabytes)
   end
 
   def call(env)
@@ -20,7 +20,7 @@ class PageHitsLogger
     user_agent = request.user_agent
 
     # Log the page hit using Rails logger
-    @logger.info "Page Hit: Date=#{Date.today}, Path=#{path}, URl=#{url}, User-Agent=#{user_agent}"
+    Rails.logger.info "Page Hit: Date=#{Date.today}, Path=#{path}, URl=#{url}, User-Agent=#{user_agent}"
 
     # Optionally, log to the database (e.g., create a PageHit model)
     # PageHit.create!(path: path, ip_address: ip_address, user_agent: user_agent)
