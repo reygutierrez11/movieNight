@@ -1,6 +1,7 @@
 require_relative "boot"
 
 require "rails/all"
+require_relative "../app/middleware/page_hits_logger.rb"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -12,6 +13,8 @@ module MovieNight
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.middleware.use PageHitsLogger
+    # config.middleware.use "PageHitsLogger"
 
     # Configuration for the application, engines, and railties goes here.
     #
