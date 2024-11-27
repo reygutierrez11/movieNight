@@ -3,7 +3,7 @@ class Suggestion < ApplicationRecord
   validates :movie, presence: true
   validates :author, presence: true
   belongs_to :sugg_box
-  
+
   # def initialize
   #   self.add_quick_description
   # end
